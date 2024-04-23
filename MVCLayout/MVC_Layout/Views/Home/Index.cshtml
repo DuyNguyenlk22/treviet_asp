@@ -1,0 +1,13 @@
+﻿@{
+    // đây là view block
+    var product = ViewData["Product"] as ProductModel ;
+}
+@section header {
+    <link href="c:\users\tv2\desktop\test_asp\mvclayout\mvc_layout\wwwroot\css\index.css" rel="stylesheet" />
+}
+@section footer {
+    <script src="c:\users\tv2\desktop\test_asp\mvclayout\mvc_layout\wwwroot\js\index.js"></script>
+}
+<h1>@ViewBag.Greeting</h1>
+
+@product.Name

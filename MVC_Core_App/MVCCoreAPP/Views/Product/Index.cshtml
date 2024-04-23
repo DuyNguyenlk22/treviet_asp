@@ -1,0 +1,60 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using MVCCoreAPP.Models
+@model List<ProductModel>
+
+@{
+    Layout = null;
+}
+@{
+    var product1 = new ProductModel();
+    product1.Name = "ABC";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width-device-width" />
+    <title>@product1.Name</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Available</th>
+                <th>Promotion Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (var product in Model)
+                {
+                    <tr>
+                        <td>@product.Id</td>
+                        <td>@product.Name</td>
+                        <td>@product.Price</td>
+                        <td>
+                        @{
+                                if(product.Available == true)
+                                {
+                                    <strong>Available</strong>
+                                }
+                                else
+                                {
+                                    <strong>Out of stock</strong>
+                                }
+                        }
+                         </td>
+                        <td>@product.PromotionPrice</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+    <p>Total of products: @Model.Count</p>
+</body>
+</html>
